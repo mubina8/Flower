@@ -1,0 +1,363 @@
+﻿@model IEnumerable<FlowerBouquet.Models.product>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@*<h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Categories.categoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.productName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isdelete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.createdDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.modifiedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isFeatured)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.quanity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categories.categoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.productName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isdelete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.createdDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.modifiedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isFeatured)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quanity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.productId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.productId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.productId })
+            </td>
+        </tr>
+    }
+
+    </table>*@
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3658ab6f9c.js" crossorigin="anonymous"></script>
+
+
+    <!-- Bootstrap CSS -->
+
+    <link href="~/static/bootstrap.css" rel="stylesheet" />
+    <link href="~/static/allproduct.css" rel="stylesheet" />
+    <link href="~/static/media.css" rel="stylesheet" />
+
+
+    <title>All products</title>
+    <!--Style code-->
+    <style>
+  .footer{
+	  background-color:#F5F5F5;
+	  color:#8a8a8a;
+	  font-size:16px;
+	  padding:60px 0 20px;
+
+  }
+
+  .column1 h3
+  {
+	  margin-bottom:20px;
+  }
+  .app-logo img
+  {
+	  margin-bottom:20px;
+  }
+
+  .column2 img
+  {  width:160px;
+
+  }
+  .column3 ul,.column4 ul
+  {
+	  padding:0;
+
+  }
+  .column3 ul li,.column4 ul li
+  {
+	  list-style:none;
+
+  }
+  .column4 ul li
+  {
+	  display:inline;
+	  padding: 0 5px;
+  }
+  .hr
+  {
+	  margin:20px 0;
+
+  }
+  .copyright{
+	  text-align:center;
+  }
+
+
+  </style>
+    <!--style code end-->
+</head>
+<body>
+
+    <!--header strt-->
+    <header>
+        <div class="container">
+            <h1 class="span">Flower Bouquet</h1>
+            <hr>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid g-0">
+                    <!--<a class="navbar-brand" href="#">Navbar</a>-->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 menu custom">
+                            <li class="nav-item">
+                                @Html.ActionLink("Home", "HomePage","static")
+                                
+
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("AboutUs", "AboutUs", "static")
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Shop", "Index", "Userproducts")
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Meet the Team", "Index", "Userteams")
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Contact Us", "Create", "contacts")
+                            </li>
+                          
+                            
+                        </ul>
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="fas fa-caret-down"></i></a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+            <!--menu end-->
+        </div>
+    </header>
+
+    <!--featured product-->
+
+    <section class="featured-products">
+        <div class="container">
+            <div class="title-box">
+                <h2>Featured product</h2>
+            </div>
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    if (item.isFeatured)
+                    {
+                <div class="col-md-4">
+                    <div class="image">
+
+                        <img src="@Url.Content(item.image)" alt="featured product" />
+                    </div>
+                </div>
+                    }
+                }
+
+            </div>
+        </div>
+    </section>
+    <!--featured product end-->
+    <!--on Sale-->
+    <section class="on-sale">
+        <div class="container">
+            <div class="title-box">
+                <h2>Our Products</h2>
+            </div>
+            <div class="row">
+                <!--c# strt-->
+                @foreach (var item in Model)
+                {
+                  if(!(item.isFeatured))
+                    {
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-top">
+                            <img src="@Url.Content(item.image)" alt="">
+                            <div class="overlay-right">
+                                <button type="button" class="btn btn-secondary" title="quick shop"><i class="fas fa-eye"></i></button>
+                                <button type="button" class="btn btn-secondary" title="wishlist">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                                <button type="button" class="btn btn-secondary" title="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="product-bottom text-center">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <h3>@item.productName</h3>
+                            <h5>$@item.price</h5>
+                            @Html.ActionLink("Details","Details",new { id=item.productId})
+
+                        </div>
+                    </div>
+                    }
+                }
+                <!---2nd column-->
+                <!--column 3 strt-->
+                <!--4th column strt-->
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!--footer strt-->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 column1">
+                    <h3>Download Our App</h3>
+                    <p>Download Our app for ios and android</p>
+                    <div class="app-logo">
+
+                        <img src="~/staticimages/gplay.png" />
+                    </div>
+
+                </div>
+                <div class="col-lg-3 col-md-6 column2">
+
+                    <img src="~/staticimages/logo.jpg" />
+                    <p>It is a long established fact that a reader will be distracted by the readable content </p>
+                </div>
+
+
+
+
+                <div class="col-lg-3 col-md-6 column3">
+                    <h3>Useful links</h3>
+                    <ul>
+                        <li>Return Policy</li>
+                        <li>Payment Details</li>
+                        <li>Use Coupuns</li>
+                        <li>Join Affiliate</li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 column4">
+                    <h3>Follow us</h3>
+                    <ul>
+                        <li><i class="fab fa-facebook-f"></i></li>
+                        <li><i class="fab fa-twitter"></i></li>
+                        <li><i class="fab fa-instagram-square"></i></li>
+                        <li><i class="fab fa-linkedin"></i></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <hr>
+            <p class="copyright">&#169 Copyright 2021.All Rights Reserved</p>
+        </div>
+
+    </footer>
+    <!--footer end-->
+
+
+
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

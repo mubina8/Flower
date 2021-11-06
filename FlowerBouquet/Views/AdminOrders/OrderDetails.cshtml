@@ -1,0 +1,81 @@
+﻿@using FlowerBouquet.Models;
+@model  AdminOrder
+@{
+    ViewBag.Title = "OrderDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<section class="container product-table">
+    <div class="row">
+        <div class="col-lg-6">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>Order Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Html.DisplayFor(model => model.orders.OrderID)</td>
+                        <td>@Html.DisplayFor(model => model.orders.name)</td>
+                        <td>@Html.DisplayFor(model => model.orders.email)</td>
+                        <td>@Html.DisplayFor(model => model.orders.Contact)</td>
+                        <td>@Html.DisplayFor(model => model.orders.orderdate)</td>
+                    </tr>
+
+
+
+
+                </tbody>
+            </table>
+        </div>
+
+        <!--Cart item-->
+        <div class="col-lg-6">
+            <h2 class="order">Ordered Item</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Unit Price</th>
+                        <th>Quantity</th>
+                        <th>Total price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.cartviewmodel)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelitem => item.products.productName)</td>
+                            <td>@Html.DisplayFor(modelitem => item.price)</td>
+                            <td>@Html.DisplayFor(modelitem => item.quantity)</td>
+                            @{
+                                var price = item.price;
+                                var quantity = item.quantity;
+                                var totalprice = price * quantity;
+                            }
+                            <td>@totalprice</td>
+
+
+
+                        </tr>
+                    }
+
+
+
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</section>
+
+
+
+

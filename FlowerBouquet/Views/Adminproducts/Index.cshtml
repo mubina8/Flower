@@ -1,0 +1,139 @@
+﻿@model IEnumerable<FlowerBouquet.Models.product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@*<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+@*<table class="table">*@
+    @*<tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Categories.categoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isdelete)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.createdDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.modifiedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isFeatured)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quanity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th></th>
+    </tr>*@
+
+@*@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categories.categoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.productName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isActive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isdelete)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.createdDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.modifiedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isFeatured)
+        </td>
+       
+            @Html.DisplayFor(modelItem => item.image)
+          <td>  <img  src="@Url.Content(item.image)"/></td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.quanity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.productId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.productId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.productId })
+        </td>
+    </tr>
+}*@
+
+@*</table>*@
+
+
+<!--Custom table-->
+<section class="product-table">
+    <button class="margin">
+        @Html.ActionLink("Add New", "Create","Adminproducts",htmlAttributes:new { @class="btn btn-success"})
+    </button>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>CategoryName</th>
+                <th>Product name</th>
+                <th>Created Date</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelitem => item.Categories.categoryName)</td>
+                    <td>@Html.DisplayFor(modelitem => item.productName)</td>
+                    <td>@Html.DisplayFor(modelitem => item.createdDate)</td>
+                    <td>@Html.DisplayFor(modelitem => item.description)</td>
+                    <td><img src="@Url.Content(item.image)" width="150" height="95" /></td>
+                    <td>@Html.DisplayFor(modelitem => item.price)</td>
+                    <td>@Html.DisplayFor(modelitem => item.quanity)</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.productId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.productId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.productId })
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</section>
+
+<!--Custom Table end-->

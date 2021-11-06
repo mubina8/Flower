@@ -1,0 +1,260 @@
+﻿@model IEnumerable<FlowerBouquet.Models.Cart>
+@{
+    ViewBag.Title = "sample";
+}
+@{ 
+    int countTotalprice=0;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3658ab6f9c.js" crossorigin="anonymous"></script>
+
+
+    <!-- Bootstrap CSS -->
+
+    <link href="~/static/bootstrap.css" rel="stylesheet" />
+
+    <link href="~/static/cartstyle.css" rel="stylesheet" />
+    <link href="~/static/media.css" rel="stylesheet" />
+
+
+    <title>All products</title>
+    <!--Style code-->
+    <style>
+        .footer {
+            background-color: #F5F5F5;
+            color: #8a8a8a;
+            font-size: 16px;
+            padding: 60px 0 20px;
+        }
+
+        .column1 h3 {
+            margin-bottom: 20px;
+        }
+
+        .app-logo img {
+            margin-bottom: 20px;
+        }
+
+        .column2 img {
+            width: 160px;
+        }
+
+        .column3 ul, .column4 ul {
+            padding: 0;
+        }
+
+            .column3 ul li, .column4 ul li {
+                list-style: none;
+            }
+
+            .column4 ul li {
+                display: inline;
+                padding: 0 5px;
+            }
+
+        .hr {
+            margin: 20px 0;
+        }
+
+        .copyright {
+            text-align: center;
+        }
+    </style>
+    <!--style code end-->
+</head>
+<body>
+
+    <!--header strt-->
+    <header>
+        <div class="container">
+            <h1 class="span">Flower Bouquet</h1>
+            <hr>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid g-0">
+                    <!--<a class="navbar-brand" href="#">Navbar</a>-->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 menu custom">
+                            <li class="nav-item">
+                                @Html.ActionLink("Home", "HomePage", "static")
+
+
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("AboutUs", "AboutUs", "static")
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Shop", "Index", "Userproducts")
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Meet the Team", "Index", "Userteams")
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Contact Us", "Create", "contacts")
+                            </li>
+                            
+                            
+                        </ul>
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="fas fa-caret-down"></i></a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+            <!--menu end-->
+        </div>
+    </header>
+    <!--cart table start-->
+    <section class="product-table">
+       
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Unit Price</th>
+                    <th>Quantity</th>
+                    <th>Total price</th>
+                    <th>Remove Item</th>
+                    
+                </tr>
+            </thead>
+          
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelitem => item.products.productName)</td>
+                        <td>@Html.DisplayFor(modelitem => item.price)</td>
+                        <td>@Html.DisplayFor(modelitem => item.quantity)</td>
+                       @{ 
+                           var price = item.price;
+                           var quantity = item.quantity;
+                           var totalprice = price * quantity;
+                           countTotalprice += totalprice;
+                       }
+                        <td>@totalprice</td>
+                        
+                        <td>
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                            <div class="form-actions no-color">
+                                @*<input type="submit" value="remove" class="btn btn-default" />*@
+
+                                @Html.ActionLink("Remove","removeitem",new { id=item.cartID})
+                            </div>
+                            }
+
+
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </section>
+    <section class="product-table center">
+        <div>
+            <h3>Total price:BDT @countTotalprice</h3>
+            <h3>Delivery Charge:BDT 50</h3>
+            @{ 
+                var ordertotal = 0;
+                ordertotal = countTotalprice + 50;
+            }
+            <h3>OrderTotal: @ordertotal</h3>
+            <button class="btn">@Html.ActionLink("Continue Shopping", "Index")</button>
+            <button class="btn">@Html.ActionLink("Proceedes Towards Checkout", "Create","Orders")</button>
+        </div>
+    </section>
+
+    <!--cart table end-->
+    <!--footer strt-->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 column1">
+                    <h3>Download Our App</h3>
+                    <p>Download Our app for ios and android</p>
+                    <div class="app-logo">
+
+                        <img src="~/staticimages/gplay.png" />
+                    </div>
+
+                </div>
+                <div class="col-lg-3 col-md-6 column2">
+
+                    <img src="~/staticimages/logo.jpg" />
+                    <p>It is a long established fact that a reader will be distracted by the readable content </p>
+                </div>
+
+
+
+
+                <div class="col-lg-3 col-md-6 column3">
+                    <h3>Useful links</h3>
+                    <ul>
+                        <li>Return Policy</li>
+                        <li>Payment Details</li>
+                        <li>Use Coupuns</li>
+                        <li>Join Affiliate</li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 column4">
+                    <h3>Follow us</h3>
+                    <ul>
+                        <li><i class="fab fa-facebook-f"></i></li>
+                        <li><i class="fab fa-twitter"></i></li>
+                        <li><i class="fab fa-instagram-square"></i></li>
+                        <li><i class="fab fa-linkedin"></i></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <hr>
+            <p class="copyright">&#169 Copyright 2021.All Rights Reserved</p>
+        </div>
+
+    </footer>
+    <!--footer end-->
+
+    <script src="~/static/popper.min.js"></script>
+    <script src="~/static/bootstrap.min.js"></script>
+
+    <script src="~/static/script.js"></script>
+
+
+
+
+</body>
+</html>
+
+
+
+

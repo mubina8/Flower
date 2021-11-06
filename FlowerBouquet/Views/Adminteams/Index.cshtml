@@ -1,0 +1,80 @@
+﻿@model IEnumerable<FlowerBouquet.Models.team>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@*<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.adminName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.studentid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adminimage)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.adminName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.studentid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.adminimage)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.teamID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.teamID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.teamID })
+        </td>
+    </tr>
+}
+
+</table>*@
+<section class="product-table">
+    <button class="margin">
+        @Html.ActionLink("Add New", "Create", "Adminteams", htmlAttributes: new { @class = "btn btn-success" })
+    </button>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Admin Name</th>
+                <th>Admin ID</th>
+                <th>Image</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelitem => item.adminName)</td>
+
+                <td>@Html.DisplayFor(modelitem => item.studentid)</td>
+                <td><img src="@Url.Content(item.adminimage)" width="150" height="120" /></td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.teamID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.teamID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.teamID })
+                </td>
+
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</section>

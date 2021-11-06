@@ -1,0 +1,109 @@
+﻿* {
+    font-size: 100% !important;
+}
+
+header {
+    padding: 50px 0;
+}
+
+h1 {
+    font-size: 70px !important;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    font-size: 38px;
+    color: #FFC0CB;
+}
+h3{
+    font-size:30px!important;
+    font-style:italic;
+    color:green;
+    text-align:center;
+}
+
+.menu{
+    color: white !important;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.menu ul li a {
+}
+
+    .menu ul li a:hover {
+        color: #FFC0CB !important;
+    }
+
+.menu ul li:first-child a {
+    padding-left: 0 !important;
+}
+
+i {
+    color: #FFC0CB;
+}
+
+a {
+    font-size: 15px !important;
+}
+.input {
+    width: 100%!important;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid green;
+}
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #4CAF50;
+    border: none;
+    background-color:green!important;
+    color:white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    width:100%;
+}
+
+/*Custom Code*/
+.cart-table{
+    margin:50px 0 50px 0;
+}
+.header h2 {
+    color: #FFC0CB;
+    font-style:italic;
+    font-size: 50px !important;
+}
+.order-table{
+    margin-bottom:50px;
+
+}
+.subtotal  h3{
+    color:black;
+    font-size:20px!important;
+    font-style:italic;
+}
+.cash{
+    font-size:30px!important;
+    font-style:italic;
+    text-align:center;
+    color:#FFC0CB;
+
+}
+.str{
+    margin-bottom:40px;
+}
+.clg h1{
+    font-size:50px!important;
+    font-style:italic;
+    color:green;
+    text-align:center;
+}
+.clg h2 {
+    font-size: 30px !important;
+    text-align: center;
+}
+.nav-item {
+    padding: 0 5px 0 5px;
+}
+.navbar {
+    background-image: none !important;
+}

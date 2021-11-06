@@ -1,0 +1,71 @@
+*{
+	text-align: center;
+	font-family: 'Playfair Display', serif;
+    padding: 0;
+    margin: 0;
+	font-size:100% !important;
+
+}
+.contact{
+	text-decoration:none!important;
+	color:white;
+}
+a {
+	color: white !important;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+body {
+	
+	background-image: url('../staticimages/registration.jpg');
+	background-color: black;
+}
+.navbar {
+	background-image: none !important;
+}
+
+label {
+	color: white;
+}
+h1{
+	font-size:70px!important;
+}
+h2{
+	margin-top: 130px;
+}
+p {
+
+	color: white;
+}
+.footer p
+{
+	  color:#8a8a8a;
+}
+.row{
+	margin-top: 115px;
+}
+.heading {
+	color: white;
+}
+
+.Container{
+	float: left 100%;
+}
+.navbar {
+	background-image: none !important;
+}
+.nav-item {
+	padding: 0 5px 0 5px;
+}

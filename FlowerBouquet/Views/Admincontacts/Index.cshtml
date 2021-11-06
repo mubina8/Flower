@@ -1,0 +1,97 @@
+﻿@model IEnumerable<FlowerBouquet.Models.contact>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SenderEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Message)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.contactImage)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SenderEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Message)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contactImage)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.contactID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.contactID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.contactID })
+            </td>
+        </tr>
+    }
+
+    </table>*@
+
+
+<!--Custom table-->
+<section class="product-table">
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Message</th>
+                <th>Image</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelitem => item.Name)</td>
+                    <td>@Html.DisplayFor(modelitem => item.SenderEmail)</td>
+                    <td>@Html.DisplayFor(modelitem => item.Message)</td>
+                    @if (item.contactImage.Equals("-1"))
+                    {
+                    <td>No image available</td>
+                    }
+                    else
+                    {
+                    <td><img src="@Url.Content(item.contactImage)" width="150" height="95" /></td>
+                    }
+
+                    <td>
+                       
+                        @Html.ActionLink("Details", "Details", new { id = item.contactID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.contactID })
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</section>
+
+<!--Custom Table end-->

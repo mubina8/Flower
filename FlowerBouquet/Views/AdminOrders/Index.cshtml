@@ -1,0 +1,120 @@
+﻿@model IEnumerable<FlowerBouquet.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@*<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.orderdate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.orderdate)
+        </td>
+        <td>
+          
+            @Html.ActionLink("Details", "Details", new { id = item.OrderID }) 
+            @Html.ActionLink("Delete", "Delete", new { id = item.OrderID })
+            @Html.ActionLink("Details", "OrderDetails", new { id = item.OrderID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.OrderID })
+        </td>
+    </tr>
+}
+
+</table>*@
+
+
+<section class="product-table">
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>Order Date</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelitem => item.OrderID)</td>
+                <td>@Html.DisplayFor(modelitem => item.name)</td>
+                <td>@Html.DisplayFor(modelitem => item.email)</td>
+                <td>@Html.DisplayFor(modelitem => item.Contact)</td>
+                <td>@Html.DisplayFor(modelitem => item.orderdate)</td>
+
+
+                <td>
+
+                    @Html.ActionLink("Details", "OrderDetails", new { id = item.OrderID }, htmlAttributes: new { @class = "btn btn-success" }) 
+                    @Html.ActionLink("Delete", "Delete", new { id = item.OrderID }, htmlAttributes: new { @class = "btn btn-success" })
+                </td>
+
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</section>
+
+@*<section class="container total-order">
+    @foreach (var item in Model)
+    {
+
+        <div class="row">
+
+            <div class="col-lg-9">
+                <h3>You got a new Order from @item.email</h3>
+                <h3>@item.orderdate</h3>
+            </div>
+            <div class="col-lg-3">
+                @Html.ActionLink("Details", "OrderDetails", new { id = item.OrderID }, htmlAttributes: new { @class = "btn btn-success" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.OrderID }, htmlAttributes: new { @class = "btn btn-success" })
+            </div>
+
+
+            
+        </div>
+        <hr />
+    }
+ </section>*@

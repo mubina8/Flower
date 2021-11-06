@@ -1,0 +1,72 @@
+﻿* {
+    font-size: 100% !important;
+}
+
+header {
+    padding: 50px 0;
+}
+
+h1 {
+    font-size: 90px!important;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    font-size: 38px;
+    color: #FFC0CB;
+}
+
+.menu {
+    color: white !important;
+    text-decoration: none !important;
+    padding: 10px;
+}
+
+    .menu ul li a {
+        text-decoration: none !important;
+        padding: 10px;
+    }
+
+        .menu ul li a:hover {
+            color: #FFC0CB !important;
+        }
+
+    .menu ul li:first-child a {
+        padding-left: 0 !important;
+    }
+
+.nav-item {
+    padding: 0 5px 0 5px;
+}
+.navbar {
+    background-image: none !important;
+}
+
+
+i {
+    color: #FFC0CB;
+}
+h3{
+    text-align:center;
+}
+button {
+    text-align: center;
+    padding: 10px;
+    background-color: #FFC0CB!important;
+   
+}
+.product-table
+{
+    padding:50px;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    margin-bottom:40px;
+   
+}
+ .center h3 {
+        font-size: 20px !important;
+        font-style: italic;
+        padding:8px 0 8px 0;
+    }
